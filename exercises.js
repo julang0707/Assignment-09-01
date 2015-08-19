@@ -68,21 +68,25 @@ var Dog = function(options){
     console.log(options);
 };
 
+Dog.prototype.praise = function () {
+  this.status = 'happy';
+};
+
 
 var Human = function(options){
   var options = options || {};
   this.cool = options.cool || false;
 
   if(options){
-    if (options.hasOwnProperty(false)) {
+    if (options.hasOwnProperty('cool')) {
       this.cool = options.cool;
     }
   }
   console.log(options);
 };
 
-Human.prototype.pet = function (animal){
-  animal.status = 'happy';
+Human.prototype.pet = function (dog){
+  dog.praise();
 };
 
 Human.prototype.feed = function(animal){
